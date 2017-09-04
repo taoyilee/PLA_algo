@@ -8,10 +8,8 @@ function [w, conv, wprogress] = PLA_core(x, eta)
       if  yp ~= y
         w = w + eta*y*xd;
        wprogress(i,6) = 1;
-%       disp(['i= ' num2str(i) '(U) Y = ' num2str(y) ' YP = ' num2str(yp) ' w=' num2str(w)])
       else
       wprogress(i,6) = 0;
-%       disp(['i= ' num2str(i) '(N) Y = ' num2str(y) ' YP = ' num2str(yp) ' w=' num2str(w)])
     end
     wprogress(i,1:5) = w;
   end
