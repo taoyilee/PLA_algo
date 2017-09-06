@@ -26,7 +26,8 @@ function err_rate_avg = hw1_question18(nruns)
   
   err_final_all = zeros(1, nruns);
   for i = 1:nruns
-    [w, wprogress, err_final_all(i)] = Pocket1(dataset_htlin_pocket_train(), 50);
+    [w, ~, ~] = Pocket1(dataset_htlin_pocket_train(), 50);
+    err_final_all(i) = Pocket_test(dataset_htlin_pocket_test(), w);
     disp(['Run#' num2str(i) ' current error rate is ' num2str(mean(err_final_all(1:i)))])
   end
   err_rate_avg = mean(err_final_all);
