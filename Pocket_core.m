@@ -11,9 +11,9 @@ function [w, wprogress, err_final] = Pocket_core(x, nupdate_max)
     y = x(i, 5);
     yp = sgn_0n1(dot(xd, w));
     wprime = w + y*xd;
-    err_np1 = Pocket_test(x, wprime)
+    err_np1 = Pocket_test(x, wprime);
     if  err_np1 <  err_final
-      w = wprime
+      w = wprime;
       err_final = err_np1;
       nupdate = nupdate + 1;
       wprogress(i,6) = 1;
