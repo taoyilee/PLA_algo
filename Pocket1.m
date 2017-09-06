@@ -1,5 +1,5 @@
-function [w, conv] = Pocket1(x, eta)
+function [w, wprogress, err_final] = Pocket1(x, nupdate_max)
     order = randperm(size(x, 1));
     x = x(order, :);
-    [w, conv] = PLA_core(x, eta, 0);
+    [w, wprogress, err_final] =  Pocket_core(x, nupdate_max);
 end
