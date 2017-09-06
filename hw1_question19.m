@@ -22,12 +22,12 @@
 ## Author:  <tylee@virtuoso>
 ## Created: 2017-09-06
 
-function err_rate_avg = hw1_question18(nruns)
+function err_rate_avg = hw1_question19(nruns)
   close all
   err_final_all = zeros(1, nruns);
   avg_err = zeros(1, nruns);
   for i = 1:nruns
-    [w, ~, ~] = Pocket1(dataset_htlin_pocket_train(), 50);
+    [w, ~, ~] = PLA2(dataset_htlin_pocket_train(), 1, 50);
     err_final_all(i) = Pocket_test(dataset_htlin_pocket_test(), w);
     avg_err(i) = mean(err_final_all(1:i));
     disp(['Run#' num2str(i) ' current mean error rate is ' num2str(avg_err(i))])
